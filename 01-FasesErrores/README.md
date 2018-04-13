@@ -48,3 +48,11 @@
  		printf("La respuesta es %d\n", i);
 	}
 15. Explicar porque funciona.
+
+
+### Resolucion
+
+#####hello2.c
+
+* **Comando**: gcc hello2.c -E -P -o hello2.i
+* **Resultado**: Lo que obtengo utilizando este comando, es un archivo legible para el usuario en el cual se detalla todo el contenido del archivo cabecera stdio.h, mostrando todas sus definiciones y declaración de funciones(incluyendo la definción del tipo necesario para cada función). Tambien los comentarios son eliminados, no aparecen en el archivo.   
