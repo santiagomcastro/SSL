@@ -1,10 +1,10 @@
 # Sintaxis y Semantica de los Lenguajes
 
-**Curso:** K2051
-**Año de cursada:** 2018
-**Legajo:** 167573-4
-**Apellido:** Castro
-**Nombre:** Santiago Matias
+* **Curso:** K2051
+* **Año de cursada:** 2018
+* **Legajo:** 167573-4
+* **Apellido:** Castro
+* **Nombre:** Santiago Matias
 
 ## Trabajo 01
 
@@ -52,7 +52,17 @@
 
 ### Resolucion
 
-#####hello2.c
+##### hello2.c
 
-* **Comando**: gcc hello2.c -E -P -o hello2.i
-* **Resultado**: Lo que obtengo utilizando este comando, es un archivo legible para el usuario en el cual se detalla todo el contenido del archivo cabecera stdio.h, mostrando todas sus definiciones y declaración de funciones(incluyendo la definción del tipo necesario para cada función). Tambien los comentarios son eliminados, no aparecen en el archivo.   
+* **Comando:** gcc hello2.c -E -P -o hello2.i
+* **Resultado:** Lo que obtengo utilizando este comando, es un archivo legible para el usuario en el cual se detalla todo el contenido del archivo cabecera stdio.h, mostrando todas sus definiciones y declaración de funciones(incluyendo la definción del tipo necesario para cada función). Tambien los comentarios son eliminados, no aparecen en el archivo.
+
+##### hello3.c
+* **Semantica de la primera linea:** Esta linea representa lo que seria la funcion 'printf()' dentro de stdio.h. Haciendo el analisis semantico obtenemos que: 
+	+ Es una función de tipo **int**, lo que devolvera un valor entero. Este sera el número de caracteres impresos en pantalla, o un número negativo en caso de haber algun error.
+	+ Su primer argumento, **const char *s **, se trata de una cadena de caracteres(char *) que no sera modificada por la funcion (const), con lo que puede ser una constante de cadena o una variable que contenga una cadena, pero siempre debe acabar en el caracter nulo. En cuanto a la **s**, se refiere al array que contiene la cadena de caracteres, si la funcion se realiza correctamentem devuelve 0, de lo contrario algo distinto de 0. 
+	+ Su segundo argumento, **...**, signica que podemos poner una ilimitada cantidad de otros argumentos los cuales printf() sabra que hacer con ellos.
+* **Comando:** gcc hello3.c -E -P -o hello3.i 
+* **Comparacion entre hello3.i y hello3.c:** No encontramos ninguna diferencia entre estos dos archivos(a excepción de la ausencia del comentario de presentacion del archivo, que no lo tendremos en cuenta porque el enunciado no pide que lo agregemos al código).
+* **Comando:** gcc hello3.i -S
+* **Resultado:** Lanza un Warning indicando que hay una funcion implicita para prontf(), pero con el nombre printf(), que si no deberiamos cambiarlo. Ademas lanza un error que indica que espera una declaracion final de la entrada. El archivo hello3.s se crea, pero solamente contiene una linea de texto ".file	"hello3.i"".
