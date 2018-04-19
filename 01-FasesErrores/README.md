@@ -76,7 +76,7 @@
 * **Comando:**gcc hello4.o -o hello4
 * **Resultado:** Lanza un error, debido a que no encuentra la funcion prontf() en la biblioteca estandar, por lo que no permite crear el ejecutable.
 
-#####hello5.c
+##### hello5.c
 * **Comando:** gcc hello5.c -o hello6
 * **Resultado:** Crea un archivo ejecutable por linea de comando, pero el resultado es distinto del esperado, en este caso es 1446736, esto se debe a que no esta aclarado el segundo argumento de la función printf(), correspondiente a '%d', por lo que se toma un valor arbitrario vamos a decir.
 
